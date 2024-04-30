@@ -33,10 +33,10 @@ const service = require("./routes/service");
 
 // route the incoming requests
 let text = "IRA SERVER | PORT: " + port + " | STATUS: OK";
-app.get('/5007', (req, res, next) => { res.send(text); })
-app.use('/5007/auth', auth);
-app.use('/5007/account', account);
-app.use('/5007/service', service);
+app.get('/', (req, res, next) => { res.send(text); })
+app.use('/auth', auth);
+app.use('/account', account);
+app.use('/service', service);
 
 
 
