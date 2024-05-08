@@ -22,6 +22,7 @@ async function getService(req, res, next) {
 
 async function newService(req, res, next) {
     const body = req.body;
+    body.user = req.auth.uid;
     const [e, report] = await task(Service.create(body));
     if (e) return next(e);
     req.rd = report;
