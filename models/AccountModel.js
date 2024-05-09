@@ -12,8 +12,9 @@ const AccountSchema = new Schema
         //Mechanic Specific
         skill: { type: String },
         location: { type: String },
+        amount: { type: Number, default: 0 },
         rating: { type: Number, default: 0 },
-        total: { type: Number, default: 0 },
+        service: { type: Number, default: 0 },
 
         archive: { type: Boolean, default: false, index: true },
         created: { type: Date, default: Date.now },

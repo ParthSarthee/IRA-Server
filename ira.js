@@ -7,7 +7,7 @@ const Auth = require("./plugins/Auth");
 
 
 // Setup Express
-let port = process.env.PORT || 5007;
+let port = process.env.PORT || 6800;
 const express = require("express");
 const app = express();
 app.use(cors());
