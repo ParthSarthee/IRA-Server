@@ -69,6 +69,11 @@ async function adminData(req, res, next) {
     return next();
 }
 
+async function ping(req, res, next) {
+    return res.json({ status: 'ok' });
+}
+
 router.post("/one", oneLogin);
 router.get("/admin", adminData);
+router.get("/ping", ping);
 module.exports = router;
