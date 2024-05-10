@@ -14,6 +14,8 @@ const ServiceSchema = new Schema
         reviewed: { type: Boolean, default: false },
         rating: { type: Number, default: 0 },
 
+        slot: { type: String },
+        service: { type: String, default: "instant", enum: ["instant", "doorstep"] },
         skill: { type: String, default: "two", enum: ["two", "three", "four", "heavy"] },
         archive: { type: Boolean, default: false, index: true },
         created: { type: Date, default: Date.now },
