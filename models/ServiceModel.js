@@ -13,6 +13,7 @@ const ServiceSchema = new Schema
         amount: { type: Number, default: 0 },
         reviewed: { type: Boolean, default: false },
         rating: { type: Number, default: 0 },
+        review: { type: String, default: "This services was only rated by the user" },
 
         slot: { type: String },
         service: { type: String, default: "instant", enum: ["instant", "doorstep"] },
