@@ -69,11 +69,20 @@ async function adminData(req, res, next) {
     return next();
 }
 
+async function reset(req, res, next) {
+    const [e, upd] = await task(Account.findOneAndUpdate({ phone: req.body.phone }, { pass: req.body.pass }));
+    if (e) return next(e);
+    req.rd = true;
+    return next();
+
+}
+
 async function ping(req, res, next) {
     return res.json({ status: 'ok' });
 }
 
 router.post("/one", oneLogin);
 router.get("/admin", adminData);
+router.post("/reset", reset);
 router.get("/ping", ping);
 module.exports = router;
