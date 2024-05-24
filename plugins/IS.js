@@ -5,32 +5,6 @@ async function user(req, res, next) {
     return next(e.noAuth);
 }
 
-async function member(req, res, next) {
-    if (req.auth && req.auth.type == 'member') return next();
-    return next(e.forbidden);
-}
-
-async function admin(req, res, next) {
-    if (req.auth && req.auth.type == 'admin') return next();
-    return next(e.forbidden);
-}
-
-async function manager(req, res, next) {
-    if (req.auth.type == 'admin' || req.auth.type == 'manager') return next();
-    return next(e.forbidden);
-}
-
-async function trainer(req, res, next) {
-    if (req.auth.type == 'admin' || req.auth.type == 'manager') return next();
-    if (req.auth.type == 'trainer') return next();
-    return next(e.forbidden);
-}
-
-async function staff(req, res, next) {
-    if (req.auth && req.auth.type != 'member') return next();
-    return next(e.forbidden);
-}
-
 
 // Errors
 const e = {
@@ -44,4 +18,4 @@ const e = {
     wrongPass: new Error('#401 The password you entered is incorrect.')
 }
 
-module.exports = { e, user, member, admin, manager, trainer, staff };
+module.exports = { e, user };
